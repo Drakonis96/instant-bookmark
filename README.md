@@ -75,7 +75,7 @@ To get started, you need to prepare a Notion database that is accessible program
 
 ### Choose your setup path:
 *   For local development (if you want to continue the development and make changes), see [LOCAL_DEVELOPMENT.md](./docs/LOCAL_DEVELOPMENT.md)
-*   To use Docker Compose for development, run `docker compose up` after creating `.env` and `.dev.vars`
+*   To use Docker Compose for development, run `docker compose up`. Provide `NOTION_API_KEY` and `NOTION_DATABASE_ID` either in `.env`/`.dev.vars` or directly in `docker-compose.yml`.
 *   For deployment (if you just want this to work), see [DEPLOYMENT.md](./docs/DEPLOYMENT.md)
 
 ## iOS Shortcut and Raycast Integrations
