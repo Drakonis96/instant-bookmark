@@ -100,6 +100,20 @@ export const processScreenshot = async (file: File, autoGenerate: boolean, manua
   return response.json();
 };
 
+// Process raw text to generate title and content
+export const processText = async (text: string): Promise<{ title: string; summary: string }> => {
+  const apiPath = '/api/process-text';
+  const response = await apiFetch(apiPath, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ text }),
+    defaultErrorMessage: 'Failed to process text',
+  });
+  return response.json();
+};
+
 // Save bookmark to Notion (via backend API)
 export const saveToNotion = async (bookmark: Omit<Bookmark, 'id' | 'createdAt'>): Promise<void> => {
   const apiPath = '/api/save-to-notion';
