@@ -37,6 +37,16 @@
     ```
     This command makes variables from `.dev.vars` available to your functions, and Vite uses variables from `.env` for the frontend. The application will typically be available at `http://localhost:5173/`, you'll see options from the terminal when you launch it.
 
+### Using Docker Compose
+
+1. Ensure `.env` and `.dev.vars` are present as described above.
+2. Build and start the container:
+```bash
+docker compose up --build
+```
+3. Open `http://localhost:5173` in your browser.
+
+
 ### API Authentication
 
 All backend Cloudflare Worker functions (under `functions/api/`) expect an `API_ACCESS_KEY` to be sent in the `X-API-Key` request header. The backend validates this key against the `API_ACCESS_KEY` secret defined in its environment. Requests with missing or invalid keys will be rejected.
