@@ -2,9 +2,6 @@
 import { handleProcessUrlPost } from './process-url';
 import { Env as ProcessUrlEnv } from './process-url';
 
-import { handleProcessTextPost } from './process-text';
-import { Env as ProcessTextEnv } from './process-text';
-
 import { handleProcessScreenshotPost } from './process-screenshot';
 import { Env as ProcessScreenshotEnv } from './process-screenshot';
 
@@ -22,7 +19,7 @@ import manifestJSON from '__STATIC_CONTENT_MANIFEST';
 const assetManifest = JSON.parse(manifestJSON);
 
 // MyWorkerEnv combines Env types from all handlers.
-interface MyWorkerEnv extends ProcessUrlEnv, ProcessScreenshotEnv, SaveToNotionEnv, IngestEnv, ProcessTextEnv {
+interface MyWorkerEnv extends ProcessUrlEnv, ProcessScreenshotEnv, SaveToNotionEnv, IngestEnv { 
   __STATIC_CONTENT: KVNamespace; // Correctly typed here
   [key: string]: unknown;
 }
@@ -42,8 +39,6 @@ export default {
     try {
       if (url.pathname === '/api/process-url') {
         return await handleProcessUrlPost(request, env);
-      } else if (url.pathname === '/api/process-text') {
-        return await handleProcessTextPost(request, env);
       } else if (url.pathname === '/api/process-screenshot') {
         return await handleProcessScreenshotPost(request, env);
       } else if (url.pathname === '/api/save-to-notion') {
