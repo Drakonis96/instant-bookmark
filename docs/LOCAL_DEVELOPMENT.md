@@ -39,7 +39,7 @@
 
 ### Using Docker Compose
 
-1. Ensure `.env` and `.dev.vars` are present as described above.
+1. Provide the required environment variables (`NOTION_API_KEY` and `NOTION_DATABASE_ID`). You can create `.env` and `.dev.vars` as described above or set them directly in `docker-compose.yml`.
 2. Build and start the container:
 ```bash
 docker compose up --build

@@ -7,5 +7,9 @@ services:
     env_file:
       - .env
       - .dev.vars
+    environment:
+      # Environment variables can also be set here or via an external .env file
+      NOTION_API_KEY: ${NOTION_API_KEY}
+      NOTION_DATABASE_ID: ${NOTION_DATABASE_ID}
     ports:
       - "5173:5173"
